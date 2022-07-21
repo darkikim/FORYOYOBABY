@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Paiements</title>
+</head>
+<body>
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Liste des paiements</div>
+        <div class="panel-body">
+            <div class="container">
+                <a th:href="@{/paiements/add}">Ajouter</a>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Id</th>
+                        <th>Montant</th>
+                        <th>Détail</th>
+                    </tr>
+                    <tr th:each="p:${listPaiements}">
+                        <td th:text="${p.id}"></td>
+                        <td th:text="${p.price}"></td>
+                        <td>
+                            <a th:href="@{/paiements/${p.id}}">Voir</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+</div>
+    </div>
+
+
+</body>
+</html>

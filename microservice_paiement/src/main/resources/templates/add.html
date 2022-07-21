@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter un paiement</title>
+</head>
+<body>
+<form>
+    <div class="form-group">
+        <label for="price">Ajouter un montant</label>
+        <input type="text" class="form-control" id="price" th:value="${paiement.price}">
+    </div>
+    <div class="form-group">
+        <label for="cardNumber">Ajouter un numéro de carte</label>
+        <input type="text" class="form-control" id="cardNumber" th:value="${paiement.cardNumber}">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</body>
+</html>
