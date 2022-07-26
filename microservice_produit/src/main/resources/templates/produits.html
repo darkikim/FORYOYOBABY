@@ -46,7 +46,7 @@
     <div>
         <ul class="pagination">
             <li class="page-item"  th:each="p,status:${pages}">
-                <a class="page-link" th:href="@{/produit(page=${status.index},size=4)}" th:text="${status.index}"></a>
+                <a class="page-link" th:href="@{/produit(page=${status.index},size=4)}" th:text="${status.index+1}"></a>
             </li>
         </ul>
     </div>
