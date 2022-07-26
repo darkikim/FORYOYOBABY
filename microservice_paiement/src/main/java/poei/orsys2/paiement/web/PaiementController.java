@@ -3,10 +3,7 @@ package poei.orsys2.paiement.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import poei.orsys2.paiement.DAO.PaiementRepository;
 import poei.orsys2.paiement.entities.Payment;
 
@@ -33,14 +30,17 @@ public class PaiementController {
         return "paiement";
     }
 
-    @RequestMapping(value="/paiements/add")
-    public String create(Model model, Payment paiement) {
-        if (null==paiement){
-            Payment payment = new Payment();
-            model.addAttribute("paiement",payment);
-            return "add";
-        }
-        paiementRepository.save(paiement);
+    @GetMapping("/paiements/add")
+    public String createPayment(Model model) {
+
+        model.addAttribute("newPaiement", new Payment());
+        return "add";
+    }
+
+    @PostMapping("/paiements/add")
+    public String submitNewPayment(@ModelAttribute("newPaiement") Payment newPaiement, Model model) {
+        paiementRepository.save(newPaiement);
         return "redirect:/paiements";
     }
+
 }
