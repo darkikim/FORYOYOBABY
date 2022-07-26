@@ -21,8 +21,9 @@
                         <td th:text="${p.id}"></td>
                         <td th:text="${p.price}"></td>
                         <td>
-                            <a th:href="@{/paiements/${p.id}}">Voir</a>
+                            <a th:href="@{ '/paiements/' + ${p.id} }">Voir</a>
                         </td>
+
                     </tr>
                 </table>
             </div>

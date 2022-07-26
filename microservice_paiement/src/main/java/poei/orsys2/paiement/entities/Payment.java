@@ -5,9 +5,11 @@ import javax.persistence.*;
 @Table
 public class Payment {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private long command_id;
     private double price;
+
     private long cardNumber;
 
     public Payment(){}
@@ -42,11 +44,12 @@ public class Payment {
         this.price = price;
     }
 
-    public long getCard() {
+    public long getCardNumber() {
         return cardNumber;
     }
 
-    public void setCard(long cardNumber) {
+    public void setCardNumber(long cardNumber) {
         this.cardNumber = cardNumber;
     }
+
 }
